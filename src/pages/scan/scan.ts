@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { BarcodeScanner } from "ionic-native";
+import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 import { ScanResultPage } from "../scan-result/scan-result.ts";
 
 @Component({
@@ -17,7 +17,8 @@ export class ScanPage {
 
   constructor(
     private _nav: NavController,
-    private _navParams: NavParams) {
+    private _navParams: NavParams,
+    private _barcodeScanner: BarcodeScanner) {
   }
 
   ionViewDidLoad() {
@@ -32,7 +33,7 @@ export class ScanPage {
     this.buttonText = "Loading..";
     this.loading = true;
 
-    BarcodeScanner.scan().then((barcodeData) => {
+    this._barcodeScanner.scan().then((barcodeData) => {
       if (barcodeData.cancelled) {
         console.log("User cancelled the action!");
         this.buttonText = "Scan";
