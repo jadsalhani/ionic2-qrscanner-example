@@ -53,7 +53,4 @@ export class ScanPage {
       scannedText: barcodeData.text
     });
   }
-
-  private checkPass(data) {
-  }
 }

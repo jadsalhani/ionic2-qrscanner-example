@@ -24,12 +24,11 @@ export class Api {
     return this.userAuth;
   }
 
-  public get() {
-    // this._http.get(url, {
-    // headers: this.headers
-    // })
-    //   .map(res => res.json())
-    //   .subscribe(value, error, complete);
+  public get(url) {
+    return this._http.get(url, {
+      headers: this.headers
+    })
+      .map(res => res.json());
   }
 
 }

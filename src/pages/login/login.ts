@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
-import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { EventListPage } from "../event-list/event-list";
 
@@ -18,9 +18,8 @@ export class LoginPage {
   constructor(
     private _nav: NavController,
     public navParams: NavParams,
-    private _loadingController: LoadingController,
-    private _formBuilder: FormBuilder) {
-      // Create FormControl to validate fields
+    private _loadingController: LoadingController) {
+    // Create FormControl to validate fields
     this.loginFormControl = new FormGroup({
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required, Validators.minLength(8)]),
